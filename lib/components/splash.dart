@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -8,7 +10,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  
   Widget build(BuildContext context) {
+
+    Timer(Duration(seconds:3),(){Navigator.pushReplacementNamed(context,'/he');});
     return Scaffold(
       body: Column(
         children: [

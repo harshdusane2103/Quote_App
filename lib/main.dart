@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quote_app/components/home.dart';
 import 'package:quote_app/components/splash.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/':(context)=>SplashScreen(),
+        '/he':(context)=>homeScreen(),
       },
     );
   }
