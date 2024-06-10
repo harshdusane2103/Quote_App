@@ -159,7 +159,7 @@ class _homeScreenState extends State<homeScreen> {
                   children: [
                     mainquote('Sad Quotes',AssetImage('assets/images/sad.webp')),
                     SizedBox(width: 8,),
-                    mainquote('Confidence Quotes',AssetImage('assets/images/con.webp')),
+                    mainquote('Confidence Quotes',AssetImage('assets/images/confidence.webp')),
                   ],
                 ),
                 SizedBox(height: 10,),
