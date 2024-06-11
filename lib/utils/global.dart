@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 List Bannerlist = [
   {
     'image': 'assets/images/hd1.jpeg',
@@ -31,5 +33,56 @@ List Bannerlist = [
 ];
 
 
+List Contanertlist=[
+  {
+    'img':'assets/images/goal.webp',
+    'Qname':'Goal Quotes',
+  },
+  {
+    'img':'assets/images/insp.webp',
+    'Qname':'Inspring Quotes',
+  },
+  {
+    'img':'assets/images/good.webp',
+    'Qname':'Good Quotes',
+  },
+  {
+    'img':'assets/images/happy.webp',
+    'Qname':'Happiness Quotes',
+  },
+  {
+    'img':'assets/images/pos.webp',
+    'Qname':'positive Quotes',
+  },
+  {
+    'img':'assets/images/sad.webp',
+    'Qname':'sad Quotes',
+  },
+  {
+    'img':'assets/images/strong.webp',
+    'Qname':'Strong Quotes',
+  },
+  {
+    'img':'assets/images/confidence.webp',
+    'Qname':'Confidence Quotes',
+  },
+];
 
+
+List<Color> colorList = [
+  Colors.white,
+  Colors.blue,
+  Colors.grey,
+  Colors.amber,
+  Colors.teal,
+  Colors.orange,
+  Colors.green,
+  Colors.deepPurple,
+  Colors.black,
+  Colors.brown,
+  Colors.cyan,
+  Colors.pink,
+  Colors.red,
+];
+Color selectColor = Colors.white;
 
