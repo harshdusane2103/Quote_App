@@ -19,6 +19,7 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          // backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
           'Quotes',
@@ -171,12 +172,12 @@ class _homeScreenState extends State<homeScreen> {
             child: Show
                 ? InkWell(onTap:() {
               Navigator.of(context).pushNamed('/de');
-                },child: Listviewbox())
+                },child: Gridviewbox())
                 : InkWell(
                     onTap: () {
                       Navigator.of(context).pushNamed('/de');
                     },
-                    child: Gridviewbox()),
+                    child:Listviewbox() ),
           )
         ]),
       ),
@@ -246,8 +247,11 @@ class _homeScreenState extends State<homeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 100,
+                  padding: EdgeInsets.all(10),
+                  height: 140,
                   width: 180,
+
+
                   decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,10 +27,21 @@ class _SplashScreenState extends State<SplashScreen> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                     image:
-                AssetImage('assets/images/had.jpg'))
+                AssetImage('assets/images/had.png'))
               ),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  children: [
+                    SizedBox(width:100,),
+                    Text('  Quotes Inspire you.. ',style: TextStyle(color: Colors.black,fontSize: 18),)
+                  ],
+                ),
+              ),
+              
             ),
-          )
+          ),
+
         ],
       ),
     );
