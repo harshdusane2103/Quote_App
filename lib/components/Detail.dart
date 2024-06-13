@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,7 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quote_app/utils/global.dart';
 import 'package:share_extend/share_extend.dart';
+import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -54,7 +56,9 @@ class _DetailScreenState extends State<DetailScreen> {
                               image: DecorationImage(
                                   fit: BoxFit.fill,
                                   image:
-                                      AssetImage(GoalImageList[index % 10]))),
+                                      AssetImage(GoalImageList[index %10]
+
+                              )),),
                           child: Center(
                               child: Padding(
                                   padding: const EdgeInsets.all(30.0),
@@ -67,7 +71,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700,
-                                            fontSize: 18),
+                                            fontSize: 18,
+                                        fontFamily: 'Cabin' ),
                                       )),
                                       SizedBox(
                                         height: 10,
@@ -79,7 +84,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w700,
-                                              fontSize: 18),
+                                              fontSize: 18,fontFamily:'Cabin'),
                                         ),
                                       ),
                                     ],
@@ -100,13 +105,16 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 20.5,
+                                width: 5.5,
                               ),
                               boxcat(
                                 InkWell(
                                   onTap: () {
                                     Selecindex = index;
                                     Navigator.of(context).pushNamed('/ed');
+                                    // Random random = Random();
+                                    // String hd = random.toString(BgimgList[index]);
+                                    // selectedThemeimage=hd;
                                   },
                                   child: Icon(
                                     Icons.photo_rounded,
@@ -117,7 +125,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Bg',
                               ),
                               SizedBox(
-                                width: 40.5,
+                                width: 30.5,
                               ),
                               boxcat(
                                 InkWell(
@@ -134,7 +142,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Font',
                               ),
                               SizedBox(
-                                width: 40.5,
+                                width:26.5,
                               ),
                               boxcat(
                                 InkWell(
@@ -151,7 +159,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Copy',
                               ),
                               SizedBox(
-                                width: 40.5,
+                                width: 26.5,
                               ),
                               boxcat(
                                 InkWell(
@@ -183,7 +191,43 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Share',
                               ),
                               SizedBox(
-                                width: 40.5,
+                                width: 26.5,
+                              ),
+                              boxcat(
+                                InkWell(
+                                  onTap: () async {
+                                    RenderRepaintBoundary boundary =
+                                    imgKey[index]
+                                        .currentContext!
+                                        .findRenderObject()
+                                    as RenderRepaintBoundary;
+
+                                    ui.Image image = await boundary.toImage();
+                                    ByteData? bytedata = await image.toByteData(
+                                        format: ui.ImageByteFormat.png);
+                                    Uint8List img =
+                                    bytedata!.buffer.asUint8List();
+
+
+                                    final path =
+                                    await getApplicationDocumentsDirectory();
+                                    File file = File("${path.path}/img.png");
+                                    file.writeAsBytes(img);
+                                    ShareExtend.share(file.path, "image");
+                                    int location = WallpaperManager.BOTH_SCREEN; //can be Home/Lock Screen
+                                    bool result = await WallpaperManager.setWallpaperFromFile(file.path, location);
+                                    //
+                                  },
+                                  child: Icon(
+                                    Icons.wallpaper,
+                                    color: Colors.black,
+                                    size: 24,
+                                  ),
+                                ),
+                                'Wallpaper',
+                              ),
+                              SizedBox(
+                                width: 20.5,
                               ),
                               boxcat(
                                 InkWell(
@@ -224,6 +268,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                                       .asUint8List();
                                                   ImageGallerySaver.saveImage(
                                                       img);
+                                                  Navigator.pop(context);
                                                 },
                                                 child: Text('Save'))
                                           ],
@@ -238,6 +283,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ),
                                 'Save',
+                              ),
+                              SizedBox(
+                                width: 2.5,
                               ),
                             ],
                           ),

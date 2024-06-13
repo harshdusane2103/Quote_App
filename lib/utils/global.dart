@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quote_app/utils/Quotelist.dart';
 
-var selectedThemeimage = 'assets/images/th1.webp';
+var selectedThemeimage = 'assets/images/th11.webp';
 
 var selectedFontFamily = 'Cabin';
 
@@ -86,10 +86,11 @@ List Contanertlist = [
 ];
 
 List<Color> colorList = [
-  Colors.white,
+
   Colors.blue,
   Colors.grey,
   Colors.amber,
+  Colors.white,
   Colors.teal,
   Colors.orange,
   Colors.green,
@@ -104,6 +105,7 @@ Color selectColor = Colors.black;
 
 List<GlobalKey> imgKey =
     List.generate(QuoteList.length, (index) => GlobalKey());
+
 
 List GoalImageList = [
   'assets/images/quote1.webp',
