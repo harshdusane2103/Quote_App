@@ -1,16 +1,19 @@
-# quote_app
+<h1 align="center">#️⃣Quote App#️⃣</h1>
+<p>
+  <P>
+   <img src="https://github.com/harshdusane2103/Quote_App/blob/master/sp.png" width=21%,heigth=35%>
+    <img src="https://github.com/harshdusane2103/Quote_App/blob/master/home.png" width=21%,heigth=35%>
+     <img src="https://github.com/harshdusane2103/Quote_App/blob/master/home2.png" width=21%,heigth=35%>
+      <img src="https://github.com/harshdusane2103/Quote_App/blob/master/quote.png" width=21%,heigth=35%>
+       <img src="https://github.com/harshdusane2103/Quote_App/blob/master/detail.png" width=21%,heigth=35%>
+        <img src="https://github.com/harshdusane2103/Quote_App/blob/master/share.png" width=21%,heigth=35%>
+         <img src="https://github.com/harshdusane2103/Quote_App/blob/master/save.png" width=21%,heigth=35%>
+   
+    <video src="https://github.com/harshdusane2103/Quote_App/assets/161817658/4e1f7ceb-b97f-46c6-af8e-1f015b1df17e">
+</P>
+      
+</p>
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
