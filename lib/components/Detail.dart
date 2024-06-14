@@ -51,14 +51,12 @@ class _DetailScreenState extends State<DetailScreen> {
                           height: 500,
                           width: 380,
                           decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image:
-                                      AssetImage(GoalImageList[index %10]
-
-                              )),),
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage(GoalImageList[index % 10])),
+                          ),
                           child: Center(
                               child: Padding(
                                   padding: const EdgeInsets.all(30.0),
@@ -72,7 +70,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700,
                                             fontSize: 18,
-                                        fontFamily: 'Cabin' ),
+                                            fontFamily: 'Cabin'),
                                       )),
                                       SizedBox(
                                         height: 10,
@@ -84,7 +82,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w700,
-                                              fontSize: 18,fontFamily:'Cabin'),
+                                              fontSize: 18,
+                                              fontFamily: 'Cabin'),
                                         ),
                                       ),
                                     ],
@@ -142,7 +141,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Font',
                               ),
                               SizedBox(
-                                width:26.5,
+                                width: 26.5,
                               ),
                               boxcat(
                                 InkWell(
@@ -195,28 +194,64 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                               boxcat(
                                 InkWell(
-                                  onTap: () async {
-                                    RenderRepaintBoundary boundary =
-                                    imgKey[index]
-                                        .currentContext!
-                                        .findRenderObject()
-                                    as RenderRepaintBoundary;
+                                  onTap: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          backgroundColor: Colors.teal.shade50,
+                                          title: Text(
+                                            'Do you want to Set Wallpaper ?',
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text('No')),
+                                            TextButton(
+                                                onPressed: () async {
+                                                  RenderRepaintBoundary
+                                                      boundary = imgKey[index]
+                                                              .currentContext!
+                                                              .findRenderObject()
+                                                          as RenderRepaintBoundary;
 
-                                    ui.Image image = await boundary.toImage();
-                                    ByteData? bytedata = await image.toByteData(
-                                        format: ui.ImageByteFormat.png);
-                                    Uint8List img =
-                                    bytedata!.buffer.asUint8List();
+                                                  ui.Image image =
+                                                      await boundary.toImage();
+                                                  ByteData? bytedata =
+                                                      await image.toByteData(
+                                                          format: ui
+                                                              .ImageByteFormat
+                                                              .png);
+                                                  Uint8List img = bytedata!
+                                                      .buffer
+                                                      .asUint8List();
 
-
-                                    final path =
-                                    await getApplicationDocumentsDirectory();
-                                    File file = File("${path.path}/img.png");
-                                    file.writeAsBytes(img);
-                                    ShareExtend.share(file.path, "image");
-                                    int location = WallpaperManager.BOTH_SCREEN; //can be Home/Lock Screen
-                                    bool result = await WallpaperManager.setWallpaperFromFile(file.path, location);
-                                    //
+                                                  final path =
+                                                      await getApplicationDocumentsDirectory();
+                                                  File file = File(
+                                                      "${path.path}/img.png");
+                                                  file.writeAsBytes(img);
+                                                  ShareExtend.share(
+                                                      file.path, "image");
+                                                  int location = WallpaperManager
+                                                      .BOTH_SCREEN; //can be Home/Lock Screen
+                                                  bool result =
+                                                      await WallpaperManager
+                                                          .setWallpaperFromFile(
+                                                              file.path,
+                                                              location);
+                                                  Navigator.pop(context);
+                                                  //
+                                                },
+                                                child: Text('Yes'))
+                                          ],
+                                        );
+                                      },
+                                    );
                                   },
                                   child: Icon(
                                     Icons.wallpaper,
